@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     height: 24,
   },
   menuTitle: {
-    fontSize: 40,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#000',
     marginVertical: 10,
