@@ -5,6 +5,9 @@ import SplashScreen2 from '../screens/SplashScreen2';
 import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import HomeScreen from '../screens/HomeScreen';
+import DataSiswa from '../screens/DataSiswa';
+import Pembayaran from '../screens/Pembayaran';
+
 
 const Stack = createStackNavigator();
 
@@ -16,6 +19,8 @@ const AuthStack = () => {
       <Stack.Screen name="SignIn" component={SignInScreen} />
       <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Data" component={DataSiswa} />
+      <Stack.Screen name="Bayar" component={Pembayaran} />
     </Stack.Navigator>
   );
 };

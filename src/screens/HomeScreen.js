@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
   return (
@@ -27,10 +28,8 @@ const HomeScreen = () => {
 
       <Text style={styles.menuTitle}>Menu</Text>
       <View style={styles.menuContainer}>
-        <MenuItem title="Nilai Siswa" image={require('../assets/images/nilai.png')} />
-        <MenuItem title="Disiplin Siswa" image={require('../assets/images/disiplin.png')} />
-        <MenuItem title="Absensi" image={require('../assets/images/absensi.png')} />
-        <MenuItem title="Informasi SPP" image={require('../assets/images/spp.png')} />
+        <MenuItem1 title="Data Siswa" image={require('../assets/images/nilai.png')} />
+        <MenuItem2 title="Informasi SPP" image={require('../assets/images/spp.png')} />
       </View>
 
       <Text style={styles.infoTitle}>INFORMASI</Text>
@@ -48,17 +47,37 @@ const HomeScreen = () => {
   );
 };
 
-const MenuItem = ({ title, image }) => (
-  <TouchableOpacity style={styles.menuItem}>
-    <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.menuGradient}>
-      <Image source={image} style={styles.menuImage} />
-      <Text style={styles.menuText}>{title}</Text>
-      <TouchableOpacity style={styles.enrollButton}>
-        <Text style={styles.enrollText}>Enroll Now</Text>
-      </TouchableOpacity>
-    </LinearGradient>
-  </TouchableOpacity>
-);
+const MenuItem1 = ({ title, image }) => {
+  const navigation = useNavigation();
+
+  return (
+    <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Data')}>
+      <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.menuGradient}>
+        <Image source={image} style={styles.menuImage} />
+        <Text style={styles.menuText}>{title}</Text>
+        <TouchableOpacity style={styles.enrollButton}>
+          <Text style={styles.enrollText}></Text>
+        </TouchableOpacity>
+      </LinearGradient>
+    </TouchableOpacity>
+  );
+};
+
+const MenuItem2 = ({ title, image }) => {
+  const navigation = useNavigation();
+
+  return (
+    <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Bayar')}>
+      <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.menuGradient}>
+        <Image source={image} style={styles.menuImage} />
+        <Text style={styles.menuText}>{title}</Text>
+        <TouchableOpacity style={styles.enrollButton}>
+          <Text style={styles.enrollText}></Text>
+        </TouchableOpacity>
+      </LinearGradient>
+    </TouchableOpacity>
+  );
+};
 
 const InfoItem = ({ title, description, image }) => (
   <View style={styles.infoItem}>
@@ -129,7 +148,7 @@ const styles = StyleSheet.create({
     height: 24,
   },
   menuTitle: {
-    fontSize: 18,
+    fontSize: 40,
     fontWeight: 'bold',
     color: '#000',
     marginVertical: 10,
@@ -161,14 +180,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 10,
+    marginBottom: 1,
+    marginTop: 20,
     textAlign: 'center',
   },
   enrollButton: {
-    backgroundColor: '#28a745',
-    borderRadius: 5,
+    borderRadius: 50,
     paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingVertical: 1,
   },
   enrollText: {
     color: '#fff',
